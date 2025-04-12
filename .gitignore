@@ -1,0 +1,23 @@
+# General ignores
+.idea/
+.vscode/
+*.pyc
+__pycache__/
+*.log
+.env
+/env
+# React ignores
+node_modules/
+build/
+public/build
+yarn-error.log*
+package-lock.json
+
+# Python ignores
+*.py[cod]
+*$py.class
+.DS_Store
+
+# OS or Editor-specific files
+.DS_Store
+Thumbs.db
