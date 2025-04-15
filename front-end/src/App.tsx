@@ -43,8 +43,7 @@ export default function App() {
         setResult(`Error: ${data.error}`);
       } else {
         const predicted = data.High > data.Low ? 'High' : 'Low';
-        const confidence = data.High > data.Low ? data.High : data.Low;
-        const resultText = `${predicted} (${confidence}%)`;
+        const resultText = `${predicted} (${data.High}%)`;
   
         setResult(resultText);
         setHistory((prev) => [{ company: companyName, result: resultText }, ...prev]);
