@@ -44,10 +44,10 @@ export default function App() {
       } else {
         const predicted = data.High > data.Low ? 'High' : 'Low';
         const confidence = data.High > data.Low ? data.High : data.Low;
-        const resultText = `Predicted Satisfaction: ${predicted} (${confidence}%)`;
+        const resultText = `${predicted} (${confidence}%)`;
   
         setResult(resultText);
-        setHistory((prev) => [...prev, { company: companyName, result: resultText }]);
+        setHistory((prev) => [{ company: companyName, result: resultText }, ...prev]);
       }
     } catch (err) {
       setResult('Error: Unable to connect to prediction service.');
