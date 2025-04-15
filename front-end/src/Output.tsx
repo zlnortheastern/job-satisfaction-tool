@@ -6,6 +6,8 @@ interface OutputProps {
   inputs: {
     salary: string;
     interestFit: string;
+    workLifeBalance: string;
+    growthPotential: string;
     companyCulture: string;
     companyReputation: string;
   };
@@ -32,10 +34,12 @@ export default function Output({ result, inputs, loading }: OutputProps) {
       <hr />
       <h6 className="text-secondary">Your Inputs</h6>
       <ul className="list-group list-group-flush">
-        <li className="list-group-item">Salary: {inputs.salary || '—'}</li>
-        <li className="list-group-item">Interest Fit: {inputs.interestFit || '—'}</li>
-        <li className="list-group-item">Company Culture: {inputs.companyCulture || '—'}</li>
-        <li className="list-group-item">Company Reputation: {inputs.companyReputation || '—'}</li>
+        <li className="list-group-item">Salary: {inputs.salary || 'N/A'}</li>
+        <li className="list-group-item">Interest Fit: {inputs.interestFit || 'N/A'}</li>
+        <li className="list-group-item">Work Life Balance: {inputs.workLifeBalance || 'N/A'}</li>
+        <li className="list-group-item">Growth Potential: {inputs.growthPotential || 'N/A'}</li>
+        <li className="list-group-item">Company Culture: {inputs.companyCulture || 'N/A'}</li>
+        <li className="list-group-item">Company Reputation: {inputs.companyReputation || 'N/A'}</li>
       </ul>
     </div>
   );

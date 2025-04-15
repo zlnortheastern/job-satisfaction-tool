@@ -1,23 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 
 interface InputFormProps {
-  onSubmit: (inputs: {
-    salary: string;
-    interestFit: string;
-    companyCulture: string;
-    companyReputation: string;
-  }) => void;
+  onSubmit: (
+    inputs: {
+      salary: string;
+      interestFit: string;
+      workLifeBalance: string;
+      growthPotential: string;
+      companyCulture: string;
+      companyReputation: string;
+    },
+    companyName: string // <-- Added
+  ) => void;
 }
 
 export default function InputForm({ onSubmit }: InputFormProps) {
-  const [salary, setSalary] = useState('');
-  const [interestFit, setInterestFit] = useState('');
-  const [companyCulture, setCompanyCulture] = useState('');
-  const [companyReputation, setCompanyReputation] = useState('');
+  const [companyName, setCompanyName] = useState("");
+  const [salary, setSalary] = useState("");
+  const [interestFit, setInterestFit] = useState("");
+  const [workLifeBalance, setWorkLifeBalance] = useState("");
+  const [growthPotential, setGrowthPotential] = useState("");
+  const [companyCulture, setCompanyCulture] = useState("");
+  const [companyReputation, setCompanyReputation] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    onSubmit({ salary, interestFit, companyCulture, companyReputation });
+    onSubmit(
+      { salary, interestFit, workLifeBalance, growthPotential, companyCulture, companyReputation },
+      companyName
+    );
   };
 
   const renderRadioButtons = (
@@ -37,7 +48,7 @@ export default function InputForm({ onSubmit }: InputFormProps) {
         {/* Radio Buttons */}
         <div className="col-md-7 d-flex flex-wrap gap-2">
           {options.map((opt) => {
-            const id = `${name}-${opt.replace(/\s/g, '').toLowerCase()}`;
+            const id = `${name}-${opt.replace(/\s/g, "").toLowerCase()}`;
             return (
               <div key={id}>
                 <input
@@ -62,7 +73,7 @@ export default function InputForm({ onSubmit }: InputFormProps) {
           <button
             type="button"
             className="btn btn-outline-danger btn-sm"
-            onClick={() => setValue('')}
+            onClick={() => setValue("")}
           >
             Clear
           </button>
@@ -74,11 +85,62 @@ export default function InputForm({ onSubmit }: InputFormProps) {
   return (
     <form onSubmit={handleSubmit} className="card p-4 shadow-sm">
       <h5 className="mb-4">Job Profile</h5>
-
-      {renderRadioButtons('Salary', 'salary', ['High', 'Medium', 'Low'], salary, setSalary)}
-      {renderRadioButtons('Interest Fit', 'interestFit', ['Strong', 'Weak'], interestFit, setInterestFit)}
-      {renderRadioButtons('Company Culture', 'companyCulture', ['Supportive', 'Toxic'], companyCulture, setCompanyCulture)}
-      {renderRadioButtons('Company Reputation', 'companyReputation', ['High', 'Low'], companyReputation, setCompanyReputation)}
+      <div className="mb-4">
+        <label htmlFor="companyName" className="form-label fw-bold">
+          Company Name:
+        </label>
+        <input
+          type="text"
+          id="companyName"
+          className="form-control"
+          placeholder="Enter company name"
+          value={companyName}
+          onChange={(e) => setCompanyName(e.target.value)}
+          required
+        />
+      </div>
+      {renderRadioButtons(
+        "Salary",
+        "salary",
+        ["High", "Medium", "Low"],
+        salary,
+        setSalary
+      )}
+      {renderRadioButtons(
+        "Interest Fit",
+        "interestFit",
+        ["Strong", "Weak"],
+        interestFit,
+        setInterestFit
+      )}
+      {renderRadioButtons(
+        "Work Life Balance",
+        "workLifeBalance",
+        ["Good", "Poor"],
+        workLifeBalance,
+        setWorkLifeBalance
+      )}
+      {renderRadioButtons(
+        "Growth Potential",
+        "growthPotential",
+        ["High", "Low"],
+        growthPotential,
+        setGrowthPotential
+      )}
+      {renderRadioButtons(
+        "Company Culture",
+        "companyCulture",
+        ["Supportive", "Toxic"],
+        companyCulture,
+        setCompanyCulture
+      )}
+      {renderRadioButtons(
+        "Company Reputation",
+        "companyReputation",
+        ["High", "Low"],
+        companyReputation,
+        setCompanyReputation
+      )}
 
       <div className="row mt-4">
         <div className="col-md-12">
