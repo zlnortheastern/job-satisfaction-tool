@@ -7,16 +7,10 @@ This is a web-based tool that predicts employee job satisfaction using a Bayesia
 - Visualization of the Bayesian Network and CPT tables
 - Prediction history tracking with company labels
 
----
-
-
----
-
 ## How to Run the Project Locally
 
-> ⚠️ Make sure you have Python 3.8+ and Node.js 16+ installed.
+> Make sure you have Python 3.8+ and Node.js 16+ installed.
 
----
 
 ### Backend Setup (Flask + pgmpy)
 
@@ -43,7 +37,6 @@ This is a web-based tool that predicts employee job satisfaction using a Bayesia
 
 > The backend should now be running at: `http://localhost:5000`
 
----
 
 ### Frontend Setup (React)
 
@@ -64,7 +57,6 @@ This is a web-based tool that predicts employee job satisfaction using a Bayesia
 
 > The frontend will open in your browser at: `http://localhost:3000`
 
----
 
 ## Local Demo Instructions
 
@@ -74,7 +66,6 @@ This is a web-based tool that predicts employee job satisfaction using a Bayesia
 4. The system will show the result and add it to the **prediction history**
 5. Click "View Bayesian Network" to see the structure and CPTs interactively
 
----
 
 ## Tech Stack
 
@@ -85,13 +76,11 @@ This is a web-based tool that predicts employee job satisfaction using a Bayesia
 | Modeling  | Discrete Bayesian Network (pgmpy) |
 | Visualization | React Flow for Bayesian graph |
 
----
 
 ## Authors
 
 -  Zhi Ling
 -  Wilson Neira
 
----
 
 
